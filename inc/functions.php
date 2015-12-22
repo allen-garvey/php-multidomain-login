@@ -2,7 +2,7 @@
 
 
 function destroy_session(){
-
+	$_SESSION[SESSION_AUTH_KEY] = null;
 }
 
 function is_authenticated($username, $password){
