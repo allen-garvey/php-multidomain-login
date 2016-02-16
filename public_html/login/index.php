@@ -3,7 +3,8 @@
 require_once('../../inc/config.php');
 
 if(REQUIRE_LOGIN === false){
-	header('Location: '.LOGGED_IN_HOME_URL, true, 307);
+	http_response_code(307);
+	header('Location: '.LOGGED_IN_HOME_URL);
 	die();
 }
 session_start();
