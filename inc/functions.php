@@ -19,6 +19,10 @@ function is_authenticated($username, $password): bool{
 	return false;
 }
 
+/*
+* If redirect= true, on failed authentication will redirect to login page
+* use redirect=false for resources, so that the request will simply fail
+*/
 function authenticate(bool $redirect = true){
 	if(REQUIRE_LOGIN === false){
 		return;
@@ -29,6 +33,9 @@ function authenticate(bool $redirect = true){
 			$_SESSION[SESSION_REDIRECT_URL_KEY] = $_SERVER['REQUEST_URI'];
 			http_response_code(400);
 			header('Location: '.LOGIN_URL);
+		}
+		else{
+			http_response_code(404);
 		}
 		die();
 	}
