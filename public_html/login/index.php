@@ -40,6 +40,6 @@ if(!empty($_REQUEST['logout']) && $_REQUEST['logout'] === 'true'){
 	$form_errors = "You have successfully logged out";
 }
 //show login form
-include(VIEWS_PATH.'header.php');
-include(VIEWS_PATH.'login-form.php');
-include(VIEWS_PATH.'footer.php');
+include(LOGIN_VIEWS_PATH.'header.php');
+include(LOGIN_VIEWS_PATH.'login-form.php');
+include(LOGIN_VIEWS_PATH.'footer.php');
