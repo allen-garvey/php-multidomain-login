@@ -29,7 +29,7 @@ else{
 }
 define('LOGGED_IN_HOME_URL', BASE_URL.'index.php');
 define('LOGIN_URL', BASE_URL.'login');
-
+define('LOGOUT_URL', LOGOUT_URL.'/?logout=true')
 
 //auto-loading
 require_once(INC_PATH.'functions.php');
