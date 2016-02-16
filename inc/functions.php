@@ -12,7 +12,7 @@ function destroy_session(){
 	session_destroy();
 }
 
-function is_authenticated($username, $password): bool{
+function is_authenticated(string $username=null, string $password=null): bool{
 	if(!empty($username) && !empty($password) && $username === MASTER_USER && $password === MASTER_PASS){
 		return true;
 	}
