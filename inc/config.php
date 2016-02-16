@@ -18,6 +18,7 @@ define('LOGIN_FORM_PASS', 'password');
 
 //session constants
 define('SESSION_AUTH_KEY', 'session_username_key');
+define('SESSION_REDIRECT_URL_KEY', 'session_redirect_url_key');
 
 //authentication
 define('MASTER_USER', 'admin');
