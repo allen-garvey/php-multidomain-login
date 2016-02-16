@@ -20,10 +20,6 @@ define('LOGIN_FORM_PASS', 'password');
 define('SESSION_AUTH_KEY', 'session_username_key');
 define('SESSION_REDIRECT_URL_KEY', 'session_redirect_url_key');
 
-//authentication
-define('MASTER_USER', 'admin');
-define('MASTER_PASS', 'password');
-
 //urls
 if(ENV_CURRENT === ENV_DEV){
 	define('BASE_URL','/php-multidomain-login/public_html/');
