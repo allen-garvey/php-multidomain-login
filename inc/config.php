@@ -23,7 +23,6 @@ define('SESSION_REDIRECT_URL_KEY', 'session_redirect_url_key');
 //authentication
 define('MASTER_USER', 'admin');
 define('MASTER_PASS', 'password');
-define('REQUIRE_LOGIN', true); //set to false to disable authentication
 
 //urls
 if(ENV_CURRENT === ENV_DEV){
