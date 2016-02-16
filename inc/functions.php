@@ -25,6 +25,7 @@ function authenticate(){
 	}
 	session_start();
 	if(empty($_SESSION) || empty($_SESSION[SESSION_AUTH_KEY])){
+		$_SESSION[SESSION_REDIRECT_URL_KEY] = $_SERVER['REQUEST_URI'];
 		http_response_code(400);
 		header('Location: '.LOGIN_URL);
 		die();
