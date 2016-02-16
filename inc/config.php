@@ -33,7 +33,7 @@ define('LOGIN_URL', BASE_URL.'login');
 define('LOGOUT_URL', LOGIN_URL.'/?logout=true');
 
 //auto-loading
-require_once(INC_PATH.'functions.php');
+require_once(INC_PATH.'login_functions.php');
 
 
 
