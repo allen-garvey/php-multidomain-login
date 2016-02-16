@@ -7,6 +7,7 @@ if(REQUIRE_LOGIN === false){
 	die();
 }
 session_start();
+
 if ($_POST) {
 	if(empty($_POST[LOGIN_FORM_USER]) || empty($_POST[LOGIN_FORM_PASS])){
 		$form_errors = "Please enter a username and password";
@@ -20,7 +21,9 @@ if ($_POST) {
 			//save in session
 			save_auth($user);
 			//redirect
-			header('Location: '.LOGGED_IN_HOME_URL, true, 307);
+			$redirect_url = !empty($_SESSION[SESSION_REDIRECT_URL_KEY]) ? $_SESSION[SESSION_REDIRECT_URL_KEY] : LOGGED_IN_HOME_URL;
+			http_response_code(302);
+			header('Location: '.$redirect_url);
 			die();
 		}
 		else{
@@ -30,9 +33,11 @@ if ($_POST) {
 		}	
 	}
 }
-
-//log user out if they were already logged in
-destroy_session();
+if(!empty($_REQUEST['logout']) && $_REQUEST['logout'] === 'true'){
+	//log user out
+	destroy_session();
+	$form_errors = "You have successfully logged out";
+}
 //show login form
 include(VIEWS_PATH.'header.php');
 include(VIEWS_PATH.'login-form.php');
