@@ -12,11 +12,12 @@ function destroy_session(){
 	session_destroy();
 }
 
-function is_authenticated(string $username=null, string $password=null): bool{
-	if(!empty($username) && !empty($password) && $username === MASTER_USER && $password === MASTER_PASS){
-		return true;
-	}
-	return false;
+function is_authenticated(string $username=null, string $password=null): bool {
+	return !empty($username) && !empty($password) && authenticate_user($username, $password);
+}
+
+function authenticate_user(string $username, string $password) : bool {
+	return $username === MASTER_USER && password_verify($password, MASTER_PASSWORD_HASH);
 }
 
 /*
