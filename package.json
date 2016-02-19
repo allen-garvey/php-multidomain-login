@@ -1,0 +1,22 @@
+{
+  "name": "php_multidomain_login",
+  "version": "1.0.0",
+  "description": "Login site for multiple subdomains",
+  "main": "public_html/index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "setup": "if [ ! -f ./inc/environment ]; then cp ./inc/environment_example.php ./inc/environment.php; fi"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/allen-garvey/php-multidomain-login"
+  },
+  "author": "Allen Garvey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/allen-garvey/php-multidomain-login/issues"
+  },
+  "homepage": "https://github.com/allen-garvey/php-multidomain-login",
+  "devDependencies": {
+  }
+}
