@@ -20,6 +20,19 @@ function authenticate_user(string $username, string $password) : bool {
 	return $username === MASTER_USER && password_verify($password, MASTER_PASSWORD_HASH);
 }
 
+function generate_captcha() : string {
+	
+	$num1 = random_int(CAPTCHA_NUMBER_MIN, CAPTCHA_NUMBER_MAX);
+	$num2 = random_int(CAPTCHA_NUMBER_MIN, CAPTCHA_NUMBER_MAX);
+
+	$_SESSION[SESSION_CAPTCHA_ANSWER_KEY] = $num1 + $num2;
+
+	return "$num1 + $num2 =";
+}
+function validate_captcha($answer) : bool {
+	return isset($answer) && (int) $answer === $_SESSION[SESSION_CAPTCHA_ANSWER_KEY];
+}
+
 /*
 * If redirect= true, on failed authentication will redirect to login page
 * use redirect=false for resources, so that the request will simply fail
