@@ -13,6 +13,9 @@ if ($_POST) {
 	if(empty($_POST[LOGIN_FORM_USER]) || empty($_POST[LOGIN_FORM_PASS])){
 		$form_errors = "Please enter a username and password";
 	}
+	else if(!validate_captcha($_POST[LOGIN_FORM_CAPTCHA])){
+		$form_errors = 'Invalid captcha';
+	}
 	else{
 		$user = $_POST[LOGIN_FORM_USER];
 		$pass = $_POST[LOGIN_FORM_PASS];
@@ -39,6 +42,7 @@ if(!empty($_REQUEST['logout']) && $_REQUEST['logout'] === 'true'){
 	destroy_session();
 	$form_errors = "You have successfully logged out";
 }
+$captcha_text = generate_captcha();
 //show login form
 include(LOGIN_VIEWS_PATH.'header.php');
 include(LOGIN_VIEWS_PATH.'login-form.php');
