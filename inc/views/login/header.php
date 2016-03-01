@@ -34,6 +34,9 @@
 			float: right;
 			cursor: pointer;
 		}
+		.legal{
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
