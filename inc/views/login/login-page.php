@@ -45,6 +45,21 @@
 		.form-group.captcha input{
 			flex-grow: 1;
 		}
+		.form-group.captcha input::-webkit-input-placeholder {
+		   text-align: center;
+		}
+
+		.form-group.captcha input:-moz-placeholder { /* Firefox 18- */
+		   text-align: center;  
+		}
+
+		.form-group.captcha input::-moz-placeholder {  /* Firefox 19+ */
+		   text-align: center;  
+		}
+
+		.form-group.captcha input:-ms-input-placeholder {  
+		   text-align: center; 
+		}
 		button{
 			cursor: pointer;
 			margin-left: 3em;
@@ -53,11 +68,6 @@
 		}
 		.legal{
 			text-align: center;
-		}
-		.clearfix:after {
-			content: "";
-			display: table;
-			clear: both;
 		}
 	</style>
 </head>
