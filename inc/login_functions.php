@@ -25,9 +25,32 @@ function generate_captcha() : string {
 	$num1 = random_int(CAPTCHA_NUMBER_MIN, CAPTCHA_NUMBER_MAX);
 	$num2 = random_int(CAPTCHA_NUMBER_MIN, CAPTCHA_NUMBER_MAX);
 
-	$_SESSION[SESSION_CAPTCHA_ANSWER_KEY] = $num1 + $num2;
+	switch(random_int(0, 3)){
+		case 0:
+			$max = max($num1, $num2);
+			$min = min($num1, $num2);
+			$answer = $max - $min;
+			$question = "$max - $min =";
+			break;
+		case 1:
+			$answer = $num1;
+			$squared = $num1 * $num1;
+			$question = "&radic;$squared =";
+			break;
+		case 2:
+			$answer = $num1 * $num2;
+			$question = "$num1 &times; $num2 =";
+			break;
+		
+		default:
+			$answer = $num1 + $num2;
+			$question = "$num1 + $num2 =";
+			break;
+	}
 
-	return "$num1 + $num2 =";
+	$_SESSION[SESSION_CAPTCHA_ANSWER_KEY] = $answer;
+
+	return $question;
 }
 function validate_captcha($answer) : bool {
 	return isset($answer) && (int) $answer === $_SESSION[SESSION_CAPTCHA_ANSWER_KEY];
