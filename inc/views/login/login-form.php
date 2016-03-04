@@ -19,6 +19,6 @@
 				?>
 			</div>
 		</form>
-		<small class="legal">Unauthorized access prohibited, authorized users only</small>
+		<div class="legal"><small>Unauthorized access prohibited, authorized users only</small></div>
 	</div>
 </div>
