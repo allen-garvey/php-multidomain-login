@@ -3,6 +3,9 @@
 <head>
 	<title><?= APP_NAME ?> - Login</title>
 	<style>
+		*{
+			box-sizing: border-box
+		}
 		html,body{
 			margin: 0;
 			font-family: Helvetica, Arial, sans-serif;
@@ -34,8 +37,25 @@
 			float: right;
 			cursor: pointer;
 		}
+		.form-group.captcha{
+			margin-top: 2em;
+			display: flex;
+			align-items: baseline;
+		}
+		.form-group.captcha label{
+			flex-basis: 35%;
+			font-size: 1.25em;
+		}
+		.form-group.captcha input{
+			flex-grow: 1;
+		}
 		.legal{
 			text-align: center;
+		}
+		.clearfix:after {
+			content: "";
+			display: table;
+			clear: both;
 		}
 	</style>
 </head>
