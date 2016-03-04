@@ -33,10 +33,6 @@
 			padding: 0.25em 0.1em;
 			margin-bottom: 1em;
 		}
-		button{
-			float: right;
-			cursor: pointer;
-		}
 		.form-group.captcha{
 			margin-top: 2em;
 			display: flex;
@@ -48,6 +44,12 @@
 		}
 		.form-group.captcha input{
 			flex-grow: 1;
+		}
+		button{
+			cursor: pointer;
+			margin-left: 3em;
+			flex-basis: 6em;
+			height: 1.85em;
 		}
 		.legal{
 			text-align: center;
