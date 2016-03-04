@@ -40,4 +40,6 @@
 	</style>
 </head>
 <body>
-
+	<?php include(LOGIN_VIEWS_PATH.'login-form.php'); ?>
+</body>
+</html>

@@ -44,6 +44,6 @@ if(!empty($_REQUEST['logout']) && $_REQUEST['logout'] === 'true'){
 }
 $captcha_text = generate_captcha();
 //show login form
-include(LOGIN_VIEWS_PATH.'header.php');
-include(LOGIN_VIEWS_PATH.'login-form.php');
-include(LOGIN_VIEWS_PATH.'footer.php');
+include(LOGIN_VIEWS_PATH.'login-page.php');
+
+
