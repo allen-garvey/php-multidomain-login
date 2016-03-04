@@ -13,7 +13,7 @@
 			<div class="form-group captcha">	
 				<label for="<?= LOGIN_FORM_CAPTCHA; ?>"><?= $captcha_text; ?></label>
 				<input type="number" placeholder="?" id="<?= LOGIN_FORM_CAPTCHA; ?>" name="<?= LOGIN_FORM_CAPTCHA; ?>" />
-				<button type="submit">Login</button>
+				<button type="submit" class="btn btn-primary">Login</button>
 			</div>
 			<div class="form-errors">
 				<?php 
