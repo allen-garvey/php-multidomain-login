@@ -39,7 +39,7 @@ if ($_POST) {
 }
 if(!empty($_REQUEST['logout']) && $_REQUEST['logout'] === 'true'){
 	//log user out
-	destroy_session();
+	session_unset();
 	$form_errors = "You have successfully logged out";
 }
 $captcha_text = generate_captcha();
