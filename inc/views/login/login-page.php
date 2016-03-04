@@ -33,9 +33,16 @@
 			padding: 0.25em 0.1em;
 			margin-bottom: 1em;
 		}
+		@media screen and (min-width: 700px){
+			.form-group.captcha{
+				display: flex;
+			}
+			.form-group.captcha .btn{
+				margin-left: 3em;
+			}
+		}
 		.form-group.captcha{
 			margin-top: 2em;
-			display: flex;
 			align-items: baseline;
 		}
 		.form-group.captcha label{
@@ -62,7 +69,6 @@
 		}
 		.form-group.captcha .btn{
 			cursor: pointer;
-			margin-left: 3em;
 			flex-basis: 6em;
 			font-size: 1em;
 		}
