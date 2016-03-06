@@ -25,7 +25,7 @@
 			margin: 6em auto;
 		}
 		.login_form{
-			background-color: #ccc;
+			background-color: #d9e6ed;
 			padding: 3em;
 			border-radius: 5px;
 		}
