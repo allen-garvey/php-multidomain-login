@@ -11,10 +11,14 @@ session_start();
 
 if ($_POST) {
 	if(empty($_POST[LOGIN_FORM_USER]) || empty($_POST[LOGIN_FORM_PASS])){
-		$form_errors = "Please enter a username and password";
+		$flash = array();
+		$flash['class'] = 'danger';
+		$flash['message'] = 'Please enter a username and password';
 	}
 	else if(!validate_captcha($_POST[LOGIN_FORM_CAPTCHA])){
-		$form_errors = 'Invalid captcha';
+		$flash = array();
+		$flash['class'] = 'danger';
+		$flash['message'] = 'Invalid captcha';
 	}
 	else{
 		$user = $_POST[LOGIN_FORM_USER];
@@ -33,14 +37,18 @@ if ($_POST) {
 		else{
 			//randomize sleep to timing string length attacks
 			usleep(rand(500, 2000));
-			$form_errors = "Invalid username or password";
+			$flash = array();
+			$flash['class'] = 'danger';
+			$flash['message'] = 'Invalid username or password';
 		}	
 	}
 }
 if(!empty($_REQUEST['logout']) && $_REQUEST['logout'] === 'true'){
 	//log user out
 	session_unset();
-	$form_errors = "You have successfully logged out";
+	$flash = array();
+	$flash['class'] = 'info';
+	$flash['message'] = 'You have successfully logged out';
 }
 $captcha_text = generate_captcha();
 //show login form
