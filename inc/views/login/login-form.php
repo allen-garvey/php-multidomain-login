@@ -14,13 +14,6 @@
 			<input type="number" placeholder="?" id="<?= LOGIN_FORM_CAPTCHA; ?>" name="<?= LOGIN_FORM_CAPTCHA; ?>" />
 			<button type="submit" class="btn btn-primary">Login</button>
 		</div>
-		<div class="form-errors">
-			<?php 
-				if (isset($form_errors)) {
-					echo $form_errors;
-				}
-			?>
-		</div>
 	</form>
 	<div class="legal"><small>Unauthorized access prohibited, authorized users only</small></div>
 </div>
