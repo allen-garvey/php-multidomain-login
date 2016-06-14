@@ -91,7 +91,7 @@
 				<?= $flash['message']; ?>
 			</div>
 		<?php endif; ?>
-		<?php include(LOGIN_VIEWS_PATH.'login-form.php'); ?>
+		<?php include(AuthController::VIEWS_PATH.'login-form.php'); ?>
 	</div>
 </body>
 </html>
