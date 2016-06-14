@@ -21,7 +21,7 @@ else{
 }
 
 
-require_once(INC_PATH.'login_config.php');
+require_once(INC_PATH.'login_controllers.php');
 
 
 

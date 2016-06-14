@@ -16,7 +16,7 @@ class AuthController{
 	//urls
 	const LOGGED_IN_HOME_URL = BASE_URL.'index.php';
 	const LOGIN_URL = BASE_URL.'login';
-	const LOGOUT_URL = LOGIN_URL.'/?logout=true';
+	const LOGOUT_URL = self::LOGIN_URL.'/?logout=true';
 
 	public static function destroy_session(){
 		//remove PHPSESSID from browser
@@ -30,7 +30,7 @@ class AuthController{
 	}
 
 	public static function is_authenticated(string $username=null, string $password=null): bool {
-		return !empty($username) && !empty($password) && AuthController::authenticate_user($username, $password);
+		return !empty($username) && !empty($password) && self::authenticate_user($username, $password);
 	}
 
 	public static function authenticate_user(string $username, string $password) : bool {
@@ -46,11 +46,11 @@ class AuthController{
 			return;
 		}
 		session_start();
-		if(empty($_SESSION) || empty($_SESSION[AuthController::SESSION_AUTH_KEY])){
+		if(empty($_SESSION) || empty($_SESSION[self::SESSION_AUTH_KEY])){
 			if($redirect){
-				$_SESSION[AuthController::SESSION_REDIRECT_URL_KEY] = $_SERVER['REQUEST_URI'];
+				$_SESSION[self::SESSION_REDIRECT_URL_KEY] = $_SERVER['REQUEST_URI'];
 				http_response_code(400);
-				header('Location: '.AuthController::LOGIN_URL);
+				header('Location: '.self::LOGIN_URL);
 			}
 			else{
 				http_response_code(404);
@@ -62,7 +62,7 @@ class AuthController{
 	* Saves that the user is logged in in session so other subdomains can access it
 	*/
 	public static function save_auth(string $username){
-		$_SESSION[AuthController::SESSION_AUTH_KEY] = $username;
+		$_SESSION[self::SESSION_AUTH_KEY] = $username;
 	}
 
 }
@@ -75,8 +75,8 @@ class CaptchaController{
 
 	public static function generate_captcha() : string {
 	
-		$num1 = random_int(CaptchaController::CAPTCHA_NUMBER_MIN, CaptchaController::CAPTCHA_NUMBER_MAX);
-		$num2 = random_int(CaptchaController::CAPTCHA_NUMBER_MIN, CaptchaController::CAPTCHA_NUMBER_MAX);
+		$num1 = random_int(self::CAPTCHA_NUMBER_MIN, self::CAPTCHA_NUMBER_MAX);
+		$num2 = random_int(self::CAPTCHA_NUMBER_MIN, self::CAPTCHA_NUMBER_MAX);
 
 		switch(random_int(0, 3)){
 			case 0:
@@ -101,12 +101,12 @@ class CaptchaController{
 				break;
 		}
 
-		$_SESSION[CaptchaController::SESSION_CAPTCHA_ANSWER_KEY] = $answer;
+		$_SESSION[self::SESSION_CAPTCHA_ANSWER_KEY] = $answer;
 
 		return $question;
 	}
 	public static function validate_captcha($answer) : bool {
-		return isset($answer) && (int) $answer === $_SESSION[CaptchaController::SESSION_CAPTCHA_ANSWER_KEY];
+		return isset($answer) && (int) $answer === $_SESSION[self::SESSION_CAPTCHA_ANSWER_KEY];
 	}
 }
 
