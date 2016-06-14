@@ -5,6 +5,6 @@ AuthController::authenticate();
 
 ?>
 
-<a href="<?= LOGOUT_URL; ?>">Logout</a>
+<a href="<?= AuthController::LOGOUT_URL; ?>">Logout</a>
 <p>Hello there! It looks like you're logged in</p>
 
