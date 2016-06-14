@@ -21,8 +21,8 @@ if ($_POST) {
 		$flash['message'] = 'Invalid captcha';
 	}
 	else{
-		$user = $_POST[LOGIN_FORM_USER];
-		$pass = $_POST[LOGIN_FORM_PASS];
+		$user = $_POST[AuthController::LOGIN_FORM_USER];
+		$pass = $_POST[AuthController::LOGIN_FORM_PASS];
 		
 		//authenticate
 		if(AuthController::is_authenticated($user, $pass)){
