@@ -18,6 +18,11 @@ class AuthController{
 	const LOGIN_URL = BASE_URL.'login';
 	const LOGOUT_URL = self::LOGIN_URL.'/?logout=true';
 
+	//rate limiting times when login fails
+	//time in ms - picked randomly between min and max
+	const LOGIN_FAILED_TIMEOUT_MIN = 500;
+	const LOGIN_FAILED_TIMEOUT_MAX = 2000;
+
 	public static function destroy_session(){
 		//remove PHPSESSID from browser
 		if ( isset( $_COOKIE[session_name()] ) ){

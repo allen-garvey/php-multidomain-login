@@ -36,7 +36,7 @@ if ($_POST) {
 		}
 		else{
 			//randomize sleep to timing string length attacks
-			usleep(rand(500, 2000));
+			usleep(rand(AuthController::LOGIN_FAILED_TIMEOUT_MIN, AuthController::LOGIN_FAILED_TIMEOUT_MAX));
 			$flash = array();
 			$flash['class'] = 'danger';
 			$flash['message'] = 'Invalid username or password';
